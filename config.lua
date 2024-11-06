@@ -4,3 +4,7 @@
 -- Forum: https://www.reddit.com/r/lunarvim/
 -- Discord: https://discord.com/invite/Xb9B4Ny
 
+
+lvim.colorscheme = "rose-pine" -- set to a custom theme
+require("user.keybindings").config()
+require("user.plugins").config()
