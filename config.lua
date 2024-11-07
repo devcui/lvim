@@ -4,7 +4,33 @@
 -- Forum: https://www.reddit.com/r/lunarvim/
 -- Discord: https://discord.com/invite/Xb9B4Ny
 
+lvim.colorscheme = "rose-pine"
+lvim.transparent_window = true
 
-lvim.colorscheme = "rose-pine" -- set to a custom theme
+
+
+-- Language Specific
+-- =========================================
+vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, {
+  "lua_ls",
+  "clangd",
+  "dockerls",
+  "gopls",
+  "golangci_lint_ls",
+  "jdtls",
+  "pyright",
+  "rust_analyzer",
+  "taplo",
+  "texlab",
+  "tsserver",
+  "yamlls",
+})
+
+
+-- keybindings
+-- =========================================
 require("user.keybindings").config()
+
+-- Plugins
+-- =========================================
 require("user.plugins").config()

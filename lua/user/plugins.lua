@@ -23,7 +23,7 @@ M.config = function()
         require("user.symbols_outline").config()
       end,
       event = "BufReadPost"
-    },
+    }
   }
 end
 
