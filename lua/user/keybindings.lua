@@ -42,7 +42,8 @@ local function set_bufferline_keymaps()
 end
 
 M.config = function()
-    set_bufferline_keymaps()
+  set_bufferline_keymaps()
+  lvim.builtin.which_key.mappings["o"] = { "<cmd>SymbolsOutline<cr>", " Symbol Outline" }
 end
 
 

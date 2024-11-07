@@ -16,7 +16,14 @@ M.config = function()
       config = function()
         require("user.diffview").config()
       end
-    }
+    },
+    {
+      "simrat39/symbols-outline.nvim",
+      config = function()
+        require("user.symbols_outline").config()
+      end,
+      event = "BufReadPost"
+    },
   }
 end
 
