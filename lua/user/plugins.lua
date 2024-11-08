@@ -47,8 +47,7 @@ M.config = function()
       end,
       cond = function()
         local _time = os.date "*t"
-        return ((_time.hour >= 21 and _time.hour < 24) or (_time.hour >= 0 and _time.hour < 1))
-          and lvim.builtin.time_based_themes
+        return ((_time.hour >= 21 and _time.hour < 24) or (_time.hour >= 0 and _time.hour < 1)) and lvim.builtin.time_based_themes
       end,
     },
     {
@@ -56,7 +55,6 @@ M.config = function()
       config = function()
         require("user/lsp_signature").config()
       end,
-      event = { "BufRead", "BufNew" },
     },
     {
       "vladdoster/remember.nvim",
@@ -890,6 +888,27 @@ M.config = function()
       },
       enabled = lvim.builtin.markdown.active,
     },
+    {
+      "wakatime/vim-wakatime",
+    },
+    {
+      "iamcco/markdown-preview.nvim",
+      build = "cd app && npm install",
+      ft = "markdown",
+    },
+    {
+      "Exafunction/codeium.nvim",
+      dependencies = {
+        "nvim-lua/plenary.nvim",
+        "hrsh7th/nvim-cmp",
+      },
+      config = function()
+        require("codeium").setup {}
+      end,
+    },
+    {
+      "voldikss/vim-translator"
+    }
   }
 end
 
