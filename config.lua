@@ -4,8 +4,14 @@
 -- Forum: https://www.reddit.com/r/lunarvim/
 -- Discord: https://discord.com/invite/Xb9B4Ny
 
-lvim.colorscheme = "rose-pine"
+lvim.colorscheme        = "rose-pine"
 lvim.transparent_window = true
+
+
+-- Builtin Configuration
+-- =========================================
+lvim.builtin.test_runner = { active = true, runnter = 'ultest' }
+lvim.builtin.web_programming = { active = true, extra = "typescript.nvim" } -- (typescript.nvim or typescript-tools.nvim) + package-info.nvim
 
 
 
