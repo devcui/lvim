@@ -607,17 +607,6 @@ M.config = function()
     },
     { "MunifTanjim/nui.nvim" },
     {
-      "folke/noice.nvim",
-      event = "VeryLazy",
-      config = function()
-        require("user.noice").config()
-      end,
-      dependencies = {
-        "rcarriga/nvim-notify",
-      },
-      enabled = lvim.builtin.noice.active,
-    },
-    {
       "olexsmir/gopher.nvim",
       config = function()
         require("gopher").setup {
