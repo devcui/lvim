@@ -37,7 +37,7 @@ lvim.builtin.hlslens = { active = true } -- enable/disable hlslens
 lvim.builtin.csv_support = true -- enable/disable csv support
 lvim.builtin.sidebar = { active = true } -- enable/disable sidebar
 lvim.builtin.task_runner = "async_tasks" -- change this to use different task runners ( "async_tasks" or "overseer" or "")
-lvim.builtin.winbar_provider = "treesitter" -- can be "filename" or "treesitter" or "navic" or ""
+lvim.builtin.winbar_provider = "" -- can be "filename" or "treesitter" or "navic" or ""
 lvim.builtin.metals = {
   active = true, -- enable/disable nvim-metals for scala development
   fallbackScalaVersion = "3.2.0-RC3",
@@ -49,7 +49,7 @@ lvim.builtin.file_browser = { active = true } -- enable/disable telescope file b
 lvim.builtin.sniprun = { active = true } -- enable/disable sniprun
 lvim.builtin.tag_provider = "outline" -- change this to use different tag providers ( symbols-outline or vista or outline)
 lvim.builtin.global_statusline = true -- set true to use global statusline
-lvim.builtin.dressing = { active = true } -- enable to override vim.ui.input and vim.ui.select with telescope
+lvim.builtin.dressing = { active = false } -- enable to override vim.ui.input and vim.ui.select with telescope
 lvim.builtin.refactoring = { active = true } -- enable to use refactoring.nvim code_actions
 lvim.builtin.tmux_lualine = true -- use vim-tpipeline to integrate lualine and tmux
 lvim.builtin.lsp_lines = true -- enable/disable lsp_lines to display lsp virtual text below instead of behind

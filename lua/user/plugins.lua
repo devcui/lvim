@@ -47,7 +47,8 @@ M.config = function()
       end,
       cond = function()
         local _time = os.date "*t"
-        return ((_time.hour >= 21 and _time.hour < 24) or (_time.hour >= 0 and _time.hour < 1)) and lvim.builtin.time_based_themes
+        return ((_time.hour >= 21 and _time.hour < 24) or (_time.hour >= 0 and _time.hour < 1))
+          and lvim.builtin.time_based_themes
       end,
     },
     {
@@ -907,8 +908,12 @@ M.config = function()
       end,
     },
     {
-      "voldikss/vim-translator"
-    }
+      "Exafunction/codeium.vim",
+      event = "BufEnter",
+    },
+    {
+      "voldikss/vim-translator",
+    },
   }
 end
 
