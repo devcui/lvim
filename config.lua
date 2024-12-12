@@ -1,8 +1,8 @@
 -- Neovim
 -- =========================================
 lvim.leader = " "
-lvim.colorscheme = "catppuccin" -- set to a custom theme
-lvim.builtin.time_based_themes = true -- set false to use your own configured theme
+lvim.colorscheme = "rose-pine" -- set to a custom theme
+lvim.builtin.time_based_themes = false -- set false to use your own configured theme
 lvim.transparent_window = false -- enable/disable transparency
 lvim.debug = false
 vim.lsp.set_log_level "error"
@@ -11,9 +11,12 @@ require("user.neovim").config()
 lvim.lsp.code_lens_refresh = true
 lvim.lsp.installer.setup.automatic_installation = false
 
+vim.opt.cursorline = true
+vim.opt.cursorcolumn = true
+
 -- Customization
 -- =========================================
-lvim.builtin.sell_your_soul_to_devil = { active = false, prada = false, openai = false } -- if you want microsoft to abuse your soul
+lvim.builtin.sell_your_soul_to_devil = { active = true, prada = false, openai = false } -- if you want microsoft to abuse your soul
 lvim.builtin.lastplace = { active = false } -- change to false if you are jumping to future
 lvim.builtin.tabnine = { active = true } -- change to false if you don't like tabnine
 lvim.builtin.persistence = { active = true } -- change to false if you don't want persistence
@@ -158,10 +161,34 @@ require("user.keybindings").config()
 
 -- clangd fix
 local cmp_nvim_lsp = require "cmp_nvim_lsp"
-require("lspconfig").clangd.setup {
+local lspconfig = require "lspconfig"
+lspconfig.clangd.setup {
   capabilities = cmp_nvim_lsp.default_capabilities(),
   cmd = {
     "clangd",
     "--offset-encoding=utf-16",
   },
+}
+
+-- 配置 denols
+lspconfig.denols.setup {
+  root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
+  on_attach = function(client, bufnr)
+    for _, tsclient in ipairs(vim.lsp.get_active_clients()) do
+      if tsclient.name == "tsserver" then
+        tsclient.stop()
+      end
+    end
+  end,
+}
+
+-- 配置 tsserver
+lspconfig.tsserver.setup {
+  on_attach = function(client, bufnr)
+    if lspconfig.util.root_pattern("deno.json", "deno.jsonc")(vim.fn.getcwd()) then
+      client.stop()
+    end
+  end,
+  root_dir = lspconfig.util.root_pattern("package.json"),
+  single_file_support = false,
 }
